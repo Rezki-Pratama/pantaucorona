@@ -66,7 +66,7 @@ class _HomeState extends State<Home> {
               ? Padding(
                   padding: EdgeInsets.fromLTRB(
                       20, MediaQuery.of(context).size.width / 1.3, 20, 0),
-                  child: (change == 1) ? PageHistory() : PageCardList(),
+                  child: PageCardList(),
                 )
               : Container(),
           (click == 1)
@@ -80,59 +80,6 @@ class _HomeState extends State<Home> {
                     meninggal: (home?.meninggal) ?? 'kosong',
                   ))
               : Container(),
-          (click==1) ? Align(
-            alignment: Alignment.bottomCenter,
-            child: GestureDetector(
-              onTap: () {
-                if (change == 0) {
-                  setState(() {
-                    change = 1;
-                  });
-                } else if (change == 1) {
-                  setState(() {
-                    change = 0;
-                  });
-                }
-              },
-              child: Padding(
-                padding: EdgeInsets.fromLTRB(
-                    10, MediaQuery.of(context).size.height / 1.10, 10, 5),
-                child: Card(
-                  color: Colors.white,
-                  elevation: 8,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Expanded(
-                            child: CustomText(
-                              text: (change == 0)
-                                  ? 'Riwayat kasus'
-                                  : 'Data per-provinsi',
-                              fontSize: 25,
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Icon(
-                            FontAwesomeIcons.arrowAltCircleRight,
-                            size: 30,
-                            color: Colors.black,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
-          ) : Container()
         ],
       ),
     );
